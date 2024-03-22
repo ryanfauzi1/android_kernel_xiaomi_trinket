@@ -94,6 +94,10 @@ function build_kernel() {
 # execute
 clean
 build_kernel
+cd /out/arch/arm64/boot/
+tg_post_build dtbo.img "$CHATID"
+exit
+
 DATE=$(date +"%Y%m%d-%H%M%S")
 KERVER=$(make kernelversion)
 KOMIT=$(git log --pretty=format:'"%h : %s"' -2)
