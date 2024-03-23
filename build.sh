@@ -39,6 +39,14 @@ function clin() {
     rm -rf ${MY_DIR}/out
 }
 
+if ! [ -d "$HOME/proton" ]; then
+echo "proton clang not found! Cloning..."
+if ! git clone -q https://github.com/kdrag0n/proton-clang.git --depth=1 -b master ~/proton; then ## ini Clang nya tools untuk membangun/compile kernel nya (tidak semua kernel mendukung clang)
+echo "Cloning failed! Aborting..."
+exit 1
+fi
+fi
+export PATH="$HOME/toolchains/proton-clang/bin:$PATH"
 function build_kernel() {
     echo -e "\n"
     echo -e "$yrllow << building kernel >> \n$white"
