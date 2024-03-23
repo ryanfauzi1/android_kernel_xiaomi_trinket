@@ -13,6 +13,8 @@ jobs:
 
     - name: setup environment
       run: |
+          cdir=$(pwd)
+          exit
           sudo apt-get update --fix-missing
           sudo apt-get install clang llvm lld gcc-aarch64-linux-gnu git make bc bison \
           openssl curl zip kmod cpio flex libelf-dev \
