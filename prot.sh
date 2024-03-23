@@ -13,3 +13,7 @@ echo "isi home: "
 ls $HOME
 echo "isi home/proton: "
 ls $HOME/proton
+
+export PATH="$HOME/toolchains/proton-clang/bin:$PATH"
+echo $PATH
+clang --version
