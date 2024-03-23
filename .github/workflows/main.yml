@@ -22,8 +22,6 @@ jobs:
           libghc-libyaml-dev libyaml-dev glibc-source \
     - name: ready compile...
       run: |
-          #curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
-          ls
           curl -s https://raw.githubusercontent.com/ryanfauzi1/android_kernel_xiaomi_trinket/10.0-Q/build.sh > build1.sh 
           chmod +x build1.sh 
           bash build1.sh
