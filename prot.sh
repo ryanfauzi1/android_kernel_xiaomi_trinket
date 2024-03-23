@@ -16,4 +16,5 @@ ls $HOME/proton
 
 export PATH="$HOME/toolchains/proton-clang/bin:$PATH"
 echo $PATH
+export KBUILD_COMPILER_STRING="$($HOME/toolchains/proton-clang/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')"
 clang --version
