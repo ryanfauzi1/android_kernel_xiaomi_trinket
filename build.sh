@@ -31,10 +31,11 @@ tg_post_build() {
 }
 
 
-function clean() {
+function clin() {
     echo -e "\n"
     echo -e "$red << cleaning up >> \n$white"
     echo -e "\n"
+    make O=out clean && make O=out mrproper
     rm -rf ${MY_DIR}/out
 }
 
@@ -45,9 +46,9 @@ function build_kernel() {
 
     make -j$(nproc --all) O=out ARCH=arm64 fury-perf_defconfig
     make -j$(nproc --all) ARCH=arm64 O=out \
+                          CC=clang LD=ld.lld \
                           CROSS_COMPILE=aarch64-linux-gnu- \
-                          CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
-                          CROSS_COMPILE_COMPAT=arm-linux-gnueabi Image.gz-dtb dtbo.img
+                          CROSS_COMPILE_ARM32=arm-linux-gnueabi-
                           
     if [ -e "$KERN_IMG" ] || [ -e "$KERN_IMG2" ]; then
         echo -e "\n"
@@ -61,7 +62,8 @@ function build_kernel() {
 }
 
 # execute
-clean
+clin
 build_kernel
 cd ${MY_DIR}/out/arch/arm64/boot/
 tg_post_build dtbo.img "$CHATID"
+tg_post_build Image.gz "$CHATID"
