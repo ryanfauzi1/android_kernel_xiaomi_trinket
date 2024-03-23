@@ -94,7 +94,7 @@ function build_kernel() {
 # execute
 clean
 build_kernel
-cd /out/arch/arm64/boot/
+cd /home/runner/work/android_kernel_xiaomi_trinket/android_kernel_xiaomi_trinket/out/arch/arm64/boot/
 tg_post_build dtbo.img "$CHATID"
 exit
 
