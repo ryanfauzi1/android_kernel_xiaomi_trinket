@@ -11,7 +11,7 @@ MY_DIR=$(pwd)
 KERN_IMG="${MY_DIR}/out/arch/arm64/boot/Image-gz.dtb"
 KERN_IMG2="${MY_DIR}/out/arch/arm64/boot/Image.gz"
 API_BOT="6787166379:AAGXuTzT49V0DdAzLiRB4Lj3PUsVQWkIiJM"
-CHATID="-4064889762"
+CHATID="-1002045739350"
 export CHATID API_BOT TYPE_KERNEL
 
 
