@@ -1,4 +1,4 @@
-name: anjing
+name: tes
 on:
   workflow_call:
   workflow_dispatch:
@@ -13,8 +13,8 @@ jobs:
 
     - name: setup environment
       run: |
-          cdir=$(pwd)
-          echo $cdir
+          chmod +x prot.sh
+          ./prot.sh
           exit
           sudo apt-get update --fix-missing
           sudo apt-get install clang llvm lld gcc-aarch64-linux-gnu git make bc bison \
