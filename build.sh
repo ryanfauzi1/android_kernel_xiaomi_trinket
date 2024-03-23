@@ -44,7 +44,7 @@ function build_kernel() {
     echo -e "$yrllow << building kernel >> \n$white"
     echo -e "\n"
 
-    make -j$(nproc --all) O=out ARCH=arm64 fury-perf_defconfig
+    make -j$(nproc --all) O=out ARCH=arm64 vendor/fury-perf_defconfig
     make -j$(nproc --all) ARCH=arm64 O=out \
                           CC=clang LD=ld.lld \
                           CROSS_COMPILE=aarch64-linux-gnu- \
@@ -66,4 +66,4 @@ clin
 build_kernel
 cd ${MY_DIR}/out/arch/arm64/boot/
 tg_post_build dtbo.img "$CHATID"
-tg_post_build Image.gz "$CHATID"
+tg_post_build Image.gz-dtb "$CHATID"
